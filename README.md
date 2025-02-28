@@ -35,4 +35,4 @@ With a vast codebase and training data, organizing them takes much time. We comm
 
 ## Acknowledgments
 
-Our code is based on [HNR](https://github.com/MrZihan/HNR-VLN), [VLN-3DFF](https://github.com/MrZihan/Sim2Real-VLN-3DFF), [ETPNav](https://github.com/MarSaKi/ETPNav) and [VLFM](https://github.com/bdaiinstitute/vlfm). Thanks for their great works!
+Our code is based on [SceneVerse](https://github.com/scene-verse/sceneverse), [HNR](https://github.com/MrZihan/HNR-VLN), [VLN-3DFF](https://github.com/MrZihan/Sim2Real-VLN-3DFF), [ETPNav](https://github.com/MarSaKi/ETPNav) and [VLFM](https://github.com/bdaiinstitute/vlfm). Thanks for their great works!
