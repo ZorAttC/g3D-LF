@@ -1,4 +1,4 @@
-### Lookahead Exploration with Neural Radiance Representation for Continuous Vision-Language Navigation
+### g3D-LF: Generalizable 3D-Language Feature Fields for Embodied Tasks
 
 #### Zihan Wang, Gim Hee Lee
 
