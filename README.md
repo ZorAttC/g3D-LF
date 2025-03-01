@@ -18,7 +18,7 @@
 * [ ] Release the code and checkpoints of the Panorama VLN.
 * [ ] Release the code and checkpoints of the SQA3D.
 
-With a vast codebase and training data, organizing them takes much time. We commit to open-sourcing the main code and data by March 31, 2025.
+With a vast codebase and training data, organizing them takes much time. We commit to open-sourcing the main code and data by March 31, 2025. The data will be continuously uploaded, and can be downloaded from [TeraBox](https://1024terabox.com/s/1iLqutL0Q-meoEdX02Iwm5g).
 
 
 
