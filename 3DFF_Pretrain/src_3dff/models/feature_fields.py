@@ -263,7 +263,7 @@ class Feature_Fields(nn.Module):
                 if batch_gt_pcd_xyz[i] != None:
                     gt_pcd_xyz = batch_gt_pcd_xyz[i].clone()
                     if mode == "habitat":
-                        gt_pcd_xyz[:,0], gt_pcd_xyz[:,1], gt_pcd_xyz[:,2] =  batch_gt_pcd_xyz[i][:,0], batch_gt_pcd_xyz[i][:,1], batch_gt_pcd_xyz[i][:,2]-1.5 # Agent's height is 1.5 meters
+                        gt_pcd_xyz[:,0], gt_pcd_xyz[:,1], gt_pcd_xyz[:,2] =  batch_gt_pcd_xyz[i][:,0], batch_gt_pcd_xyz[i][:,1], batch_gt_pcd_xyz[i][:,2]-1.25 # Agent's height is 1.25 meters
                     elif mode == "scannet":
                         gt_pcd_xyz[:,0], gt_pcd_xyz[:,1], gt_pcd_xyz[:,2] = batch_gt_pcd_xyz[i][:,0], batch_gt_pcd_xyz[i][:,1], batch_gt_pcd_xyz[i][:,2]
                     elif mode == "structured3d":
