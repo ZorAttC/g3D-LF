@@ -13,7 +13,7 @@
 * [x] Release the pre-training code of the g3D-LF Model.
 * [x] Release the pre-training checkpoints of the g3D-LF Model.
 * [x] Release the dataset used for pre-training g3D-LF Model.
-* [ ] Release the code and checkpoints of the Zero-shot Object Navigation.
+* [x] Release the code and checkpoints of the Zero-shot Object Navigation.
 * [x] Release the code and checkpoints of the Monocular VLN.
 * [ ] Release the code and checkpoints of the Panorama VLN.
 * [ ] Release the code and checkpoints of the SQA3D.
