@@ -1004,9 +1004,9 @@ class RLTrainer(BaseVLNCETrainer):
                                     matplotlib.use('TkAgg')
                                     plt.imshow(sim_score.view(168,168).detach().cpu().numpy())
                                     plt.tight_layout()
-                                    plt.show()
-                                
+                                    plt.show()                       
                         '''
+
                 # Contrastive learning for bev map
                 if len(sampled_predicted_bev_fts) > 0:
                     sampled_predicted_bev_fts = torch.cat(sampled_predicted_bev_fts,dim=0).to(torch.float32)
