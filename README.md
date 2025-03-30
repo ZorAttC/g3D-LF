@@ -11,16 +11,55 @@
 ## TODOs
 
 * [x] Release the pre-training code of the g3D-LF Model.
-* [ ] Release the pre-training checkpoints of the g3D-LF Model.
-* [ ] Release the dataset used for pre-training g3D-LF Model.
+* [x] Release the pre-training checkpoints of the g3D-LF Model.
+* [x] Release the dataset used for pre-training g3D-LF Model.
 * [ ] Release the code and checkpoints of the Zero-shot Object Navigation.
-* [ ] Release the code and checkpoints of the Monocular VLN.
+* [x] Release the code and checkpoints of the Monocular VLN.
 * [ ] Release the code and checkpoints of the Panorama VLN.
 * [ ] Release the code and checkpoints of the SQA3D.
 
-With a vast codebase and training data, organizing them takes much time. We commit to open-sourcing the main code and data by March 31, 2025. The data will be continuously uploaded, and can be downloaded from [TeraBox](https://1024terabox.com/s/1iLqutL0Q-meoEdX02Iwm5g).
+### Requirements
 
+1. Install `Habitat simulator`: follow instructions from [ETPNav](https://github.com/MarSaKi/ETPNav) or [VLN-CE](https://github.com/jacobkrantz/VLN-CE).
+2. Install `torch_kdtree` for K-nearest feature search from [torch_kdtree](https://github.com/thomgrand/torch_kdtree).
+   ```
+   git clone https://github.com/thomgrand/torch_kdtree
+   cd torch_kdtree
+   git submodule init
+   git submodule update
+   pip3 install .
+   ```
+3. Install `tinycudann` for faster multi-layer perceptrons (MLPs) from [tiny-cuda-nn](https://github.com/NVlabs/tiny-cuda-nn).
+   ```
+   pip3 install git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
+   ```
+4. Download the preprocessed data and checkpoints from [TeraBox](https://1024terabox.com/s/1iLqutL0Q-meoEdX02Iwm5g).
 
+### (Optional) Pre-train the 3D-Language Feature Fields
+```
+cd 3DFF_Pretrain
+bash run_3dff/3dff.bash train 2341
+```
+
+### Train the monocular VLN
+1. (Optional) Pre-train the ETPNav without depth feature
+
+```
+cd ETPNav_without_depth
+bash pretrain_src/run_pt/run_r2r.bash 2342
+```
+2. (Optional) Finetune the ETPNav without depth feature
+```
+cd ETPNav_without_depth
+bash run_r2r/main.bash train 2343
+```
+3. Train and evaluate the monocular ETPNav with 3D-Language Feature Fields
+```
+cd VLN_3DFF
+bash run_r2r/main.bash train 2344 # training
+bash run_r2r/main.bash eval 2344 # evaluation
+bash run_r2r/main.bash inter 2344 # inference
+```
 
 ## Citation
 
