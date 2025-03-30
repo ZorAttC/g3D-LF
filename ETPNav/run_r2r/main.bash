@@ -9,7 +9,7 @@ flag1="--exp_name release_r2r
       TORCH_GPU_IDS [0,1]
       GPU_NUMBERS 2
       NUM_ENVIRONMENTS 4
-      IL.iters 20000
+      IL.iters 15000
       IL.lr 1e-5
       IL.log_every 1000
       IL.ml_weight 1.0
