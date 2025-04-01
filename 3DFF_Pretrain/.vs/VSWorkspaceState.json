@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\src_3dff"
+    "\\habitat_extensions",
+    "\\src_3dff",
+    "\\src_3dff\\models"
   ],
   "SelectedNode": "\\src_3dff\\ss_trainer_3DFF.py",
   "PreviewInSolutionExplorer": false

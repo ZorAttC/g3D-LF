@@ -56,7 +56,8 @@ import open3d as o3d
 import re
 import matplotlib.pyplot as plt
 import matplotlib
-
+simulator_episodes = 0
+os.environ['RUN_SEED'] = '0'
 
 def focal_loss(inputs, targets, focal_rate=0.1):
     ce_loss = F.cross_entropy(inputs, targets, reduction='none')
@@ -628,6 +629,17 @@ class RLTrainer(BaseVLNCETrainer):
         return rot, trans, K
 
     def run_on_hm3d(self, mode):
+
+        global simulator_episodes
+        simulator_episodes += 1
+        if simulator_episodes % 100 == 0:
+            self.envs.close()
+            self.envs = construct_envs(
+                self.config, 
+                get_env_class(self.config.ENV_NAME),
+                auto_reset_done=False
+            )
+
         loss = 0.
         loss_1 = loss_2 = loss_3 = loss_4 = loss_5 = loss_6 = 0.
         total_actions = 0.

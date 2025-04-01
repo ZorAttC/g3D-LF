@@ -253,9 +253,16 @@ class VLNCEDatasetV1_3DFF(Dataset):
 
     def __init__(self, config: Optional[Config] = None) -> None:
         
+        random.seed(int(os.environ['RUN_SEED']))
+        RUN_SEED = int(os.environ['RUN_SEED'])
+        RUN_SEED += 1
+        os.environ['RUN_SEED'] = str(RUN_SEED)
+
         hm3d_dir = "data/scene_datasets/hm3d"
         scene_ids = os.listdir(os.path.join(hm3d_dir, 'train')) #+ os.listdir(os.path.join(hm3d_dir, 'val')) # Remove the val split
         scene_ids.sort(key=lambda x: int(x.split('-')[0]))
+        random.shuffle(scene_ids)
+
         for i in range(len(scene_ids)):
             scene_id = scene_ids[i]
             if int(scene_id.split('-')[0]) < 800:
@@ -295,6 +302,7 @@ class VLNCEDatasetV1_3DFF(Dataset):
     ) -> None:
 
         deserialized = json.loads(json_str)
+        random.shuffle(deserialized["episodes"])
         for episode in deserialized["episodes"]:
             episode['scene_id'] = 'data/scene_datasets/'+episode['scene_id']
             # The instruction is not needed, just for running the code
