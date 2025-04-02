@@ -57,7 +57,6 @@ import re
 import matplotlib.pyplot as plt
 import matplotlib
 simulator_episodes = 0
-os.environ['RUN_SEED'] = '0'
 
 def focal_loss(inputs, targets, focal_rate=0.1):
     ce_loss = F.cross_entropy(inputs, targets, reduction='none')

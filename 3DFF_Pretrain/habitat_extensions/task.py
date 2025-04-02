@@ -14,7 +14,8 @@ from habitat.tasks.nav.nav import NavigationGoal
 from habitat.tasks.vln.vln import InstructionData, VLNEpisode
 import random
 from tqdm import tqdm
-random.seed(0)
+#random.seed(0)
+import time
 
 DEFAULT_SCENE_PATH_PREFIX = "data/scene_datasets/"
 ALL_LANGUAGES_MASK = "*"
@@ -253,10 +254,8 @@ class VLNCEDatasetV1_3DFF(Dataset):
 
     def __init__(self, config: Optional[Config] = None) -> None:
         
-        random.seed(int(os.environ['RUN_SEED']))
-        RUN_SEED = int(os.environ['RUN_SEED'])
-        RUN_SEED += 1
-        os.environ['RUN_SEED'] = str(RUN_SEED)
+        seed = int(time.time())
+        random.seed(seed)
 
         hm3d_dir = "data/scene_datasets/hm3d"
         scene_ids = os.listdir(os.path.join(hm3d_dir, 'train')) #+ os.listdir(os.path.join(hm3d_dir, 'val')) # Remove the val split
@@ -291,9 +290,9 @@ class VLNCEDatasetV1_3DFF(Dataset):
             #            "data/datasets/pointnav/hm3d/v1/val/content/"+scene_id.split("/")[-1].split(".")[0]+'.json.gz', "rt"
             #        ) as f:
             #            self.from_json(f.read())
-            #count += 1
-            #if count == 20:
-            #    break
+            count += 1
+            if count == 16:
+                break
         return None
 
 
