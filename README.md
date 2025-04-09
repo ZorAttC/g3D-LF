@@ -36,6 +36,7 @@
 4. Download the preprocessed data and checkpoints from [TeraBox](https://1024terabox.com/s/1iLqutL0Q-meoEdX02Iwm5g).
 
 5. (Optional) Download the Pre-training data
+
 	Download the `Habitat-Matterport 3D Research Dataset (HM3D)` dataset from [habitat-matterport-3dresearch](https://github.com/matterport/habitat-matterport-3dresearch)
 	```
 	hm3d-train-habitat-v0.2.tar
