@@ -35,6 +35,14 @@
    ```
 4. Download the preprocessed data and checkpoints from [TeraBox](https://1024terabox.com/s/1iLqutL0Q-meoEdX02Iwm5g).
 
+5. (Optional) Download the Pre-training data
+	Download the `Habitat-Matterport 3D Research Dataset (HM3D)` dataset from [habitat-matterport-3dresearch](https://github.com/matterport/habitat-matterport-3dresearch)
+	```
+	hm3d-train-habitat-v0.2.tar
+	hm3d-val-habitat-v0.2.tar
+	```
+	Download RGB-D images of Structured3D, please follow [Structured3D](https://github.com/bertjiazheng/Structured3D)
+
 ### (Optional) Pre-train the 3D-Language Feature Fields
 ```
 cd 3DFF_Pretrain
@@ -60,6 +68,9 @@ bash run_r2r/main.bash train 2344 # training
 bash run_r2r/main.bash eval 2344 # evaluation
 bash run_r2r/main.bash inter 2344 # inference
 ```
+
+### Run Zero-shot Object Navigation
+Please read [ObjectNav](https://github.com/MrZihan/g3D-LF/blob/main/ObjectNav/README.md)
 
 ## Citation
 

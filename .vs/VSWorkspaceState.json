@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\3DFF_Pretrain",
+    "\\3DFF_Pretrain\\habitat_extensions",
+    "\\3DFF_Pretrain\\run_3dff",
+    "\\3DFF_Pretrain\\src_3dff",
+    "\\ETPNav",
+    "\\ETPNav\\habitat_extensions",
+    "\\ETPNav_without_depth",
+    "\\ETPNav_without_depth\\habitat_extensions"
+  ],
+  "SelectedNode": "\\3DFF_Pretrain\\src_3dff\\ss_trainer_3DFF.py",
+  "PreviewInSolutionExplorer": false
+}
