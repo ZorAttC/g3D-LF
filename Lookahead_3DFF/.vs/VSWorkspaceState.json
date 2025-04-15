@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\habitat_extensions",
+    "\\run_r2r",
+    "\\vlnce_baselines",
+    "\\vlnce_baselines\\models",
+    "\\vlnce_baselines\\models\\encoders",
+    "\\vlnce_baselines\\models\\etp"
+  ],
+  "SelectedNode": "\\vlnce_baselines\\ss_trainer_ETP.py",
+  "PreviewInSolutionExplorer": false
+}
