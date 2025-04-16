@@ -1162,6 +1162,15 @@ class RLTrainer(BaseVLNCETrainer):
                             })
                     self.path_eps[ep_id] = self.path_eps[ep_id][:500]
                     self.path_eps[ep_id][-1]['stop'] = True
+
+                    # Avoid the Test submission bug
+                    for j in range(len(self.path_eps[ep_id])-1):
+                        move_value = np.array(self.path_eps[ep_id][j+1]['position'])-np.array(self.path_eps[ep_id][j]['position'])
+                        move_value = np.sqrt(np.square(move_value).sum()).item()
+                        if move_value >= 0.75:
+                            move_value = 0.7/move_value * (np.array(self.path_eps[ep_id][j+1]['position'])-np.array(self.path_eps[ep_id][j]['position']))
+                            self.path_eps[ep_id][j+1]['position'] = (np.array(self.path_eps[ep_id][j]['position']) + move_value).tolist()
+
                     self.pbar.update()
 
             # pause env
