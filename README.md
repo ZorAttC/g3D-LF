@@ -55,6 +55,7 @@
 ```
 cd 3DFF_Pretrain
 bash run_3dff/3dff.bash train 2341
+python3 convert_ckpt.py # Convert the pre-trained checkpoint for downstream tasks, i.e., 3dff.pth
 ```
 
 ### Train the monocular VLN
