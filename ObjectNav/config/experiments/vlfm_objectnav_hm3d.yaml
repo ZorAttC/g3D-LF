@@ -48,6 +48,7 @@ habitat_baselines:
   force_torch_single_threaded: True
 
   eval:
+    video_option: ["disk"]
     split: "val"
 
   rl:

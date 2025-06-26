@@ -10,7 +10,7 @@ RUN apt-get update \
       build-essential \
       libgl1-mesa-dev libjpeg-dev libglm-dev libgl1-mesa-glx \
       libegl1-mesa-dev mesa-utils xorg-dev freeglut3-dev \
-      python3.10-dev python3-pip python-is-python3 \
+      python3.10-dev python3-pip python-is-python3 cmake \
       && rm -rf /var/lib/apt/lists/* \
       && apt-get clean all
 
@@ -31,9 +31,18 @@ RUN pip install torch>=1.10.1 \
     bosdyn-api>=3.3.2 \
     six>=1.16.0
 
-RUN pip install git+https://github.com/naokiyokoyama/frontier_exploration.git \
-                git+https://github.com/ChaoningZhang/MobileSAM.git \
-                git+https://github.com/naokiyokoyama/depth_camera_filtering \
-                git+https://github.com/facebookresearch/habitat-sim.git@v0.2.4 \
-                git+https://github.com/naokiyokoyama/bd_spot_wrapper.git \
-                git+https://github.com/IDEA-Research/GroundingDINO.git
+# RUN pip install git+https://github.com/naokiyokoyama/frontier_exploration.git \
+#                 git+https://github.com/ChaoningZhang/MobileSAM.git \
+#                 git+https://github.com/naokiyokoyama/depth_camera_filtering \
+#                 git+https://github.com/facebookresearch/habitat-sim.git@v0.2.4 \
+#                 git+https://github.com/naokiyokoyama/bd_spot_wrapper.git \
+#                 git+https://github.com/IDEA-Research/GroundingDINO.git
+
+# Create a non-root user named docker_user
+RUN useradd -m -s /bin/bash docker_user \
+    && echo "docker_user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/docker_user \
+    && chmod 0440 /etc/sudoers.d/docker_user
+
+# Switch to the docker_user
+USER docker_user
+WORKDIR /home/docker_user

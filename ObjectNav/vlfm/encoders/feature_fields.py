@@ -824,7 +824,8 @@ class Feature_Fields(nn.Module):
                 viewpoint_direction_list.append(direction)
 
             width = self.args.mlp_net_width
-            if self.global_fts[i] == []:
+            if self.global_fts[i] is None or len(self.global_fts[i]) == 0:
+
                 self.global_fts[i] = grid_ft.reshape((-1,width))          
             else:
                 self.global_fts[i] = np.concatenate((self.global_fts[i],grid_ft.reshape((-1,width))),axis=0)
@@ -836,7 +837,7 @@ class Feature_Fields(nn.Module):
             patch_scales = np.concatenate(viewpoint_scale_list,0)
             patch_directions = np.concatenate(viewpoint_direction_list,0)
 
-            if self.global_position[i] == []:
+            if self.global_position[i] is None or len(self.global_position[i]) == 0:
                 self.global_position[i] = points
                 self.global_patch_scales[i] = patch_scales
                 self.global_patch_directions[i] = patch_directions

@@ -14,6 +14,7 @@ authors = [
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
+    "numpy==1.26.4",
     "flask >= 2.3.2",
     "seaborn >= 0.12.2",  # required by yolov7
     "open3d >= 0.17.0",
@@ -22,7 +23,7 @@ dependencies = [
     "frontier_exploration @ git+https://github.com/naokiyokoyama/frontier_exploration.git",
     "mobile_sam @ git+https://github.com/ChaoningZhang/MobileSAM.git",
     "depth_camera_filtering @ git+https://github.com/naokiyokoyama/depth_camera_filtering",
-    "groundingdino @ git+https://github.com/IDEA-Research/GroundingDINO.git",
+    "opencv-python == 4.5.5.64"
 ]
 
 [project.optional-dependencies]

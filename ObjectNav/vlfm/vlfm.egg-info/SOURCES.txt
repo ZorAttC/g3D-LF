@@ -1,9 +1,14 @@
-LICENSE
 README.md
 pyproject.toml
 setup.py
 test/test_setup.py
 test/test_visualization.py
+vlfm/encoders/feature_fields.py
+vlfm/encoders/resnet_encoders.py
+vlfm/encoders/clip/__init__.py
+vlfm/encoders/clip/clip.py
+vlfm/encoders/clip/model.py
+vlfm/encoders/clip/simple_tokenizer.py
 vlfm/mapping/base_map.py
 vlfm/mapping/frontier_map.py
 vlfm/mapping/object_point_cloud_map.py

@@ -227,6 +227,8 @@ def draw_bounding_box(
     if color is None:
         # Randomly choose a color from the rainbow colormap (so boxes aren't black)
         single_pixel = np.array([[np.random.randint(0, 256)]])
+        single_pixel = single_pixel.astype(np.uint8)
+
         single_pixel = cv2.applyColorMap(single_pixel, cv2.COLORMAP_RAINBOW)
 
         # reshape to a single dimensional array

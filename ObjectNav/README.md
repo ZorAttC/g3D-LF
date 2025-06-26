@@ -10,11 +10,32 @@ Create the conda environment:
 conda_env_name=vlfm
 conda create -n $conda_env_name python=3.9 -y &&
 conda activate $conda_env_name
+conda install pytorch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 pytorch-cuda=11.8 -c pytorch -c nvidia
 ```
-If you are using habitat and are doing simulation experiments, install this repo into your env with the following:
+
 ```bash
-pip install -e .[habitat]
+git clone git@github.com:IDEA-Research/GroundingDINO.git
+cd GroundingDINO/
+pip install -e .
+
+mkdir weights
+cd weights
+wget -q https://github.com/IDEA-Research/GroundingDINO/releases/download/v0.1.0-alpha/groundingdino_swint_ogc.pth
+cd ..
 ```
+
+
+If you are using habitat and are doing simulation experiments, install this repo into your env with the following:
+
+```bash
+pip install -e ".[habitat]"
+
+conda install habitat-sim=0.2.4 withbullet -c conda-forge -c aihabitat
+
+```
+
+
+
 If you are using the Spot robot, install this repo into your env with the following:
 ```bash
 pip install -e .[reality]
@@ -22,6 +43,7 @@ pip install -e .[reality]
 Install all the dependencies:
 ```bash
 git clone git@github.com:IDEA-Research/GroundingDINO.git
+
 git clone git@github.com:WongKinYiu/yolov7.git  # if using YOLOv7
 ```
 Follow the original install directions for GroundingDINO, which can be found here: https://github.com/IDEA-Research/GroundingDINO.
@@ -48,7 +70,31 @@ ln -s ${CONDA_PREFIX}/lib/python3.9/site-packages/nvidia/cublas/include/*  ${CON
 ln -s ${CONDA_PREFIX}/lib/python3.9/site-packages/nvidia/cusolver/include/*  ${CONDA_PREFIX}/include/ &&
 export CUDA_HOME=${CONDA_PREFIX}
 ```
+### habitat installation
+conda install habitat-sim
 
+To install habitat-sim 
+```bash
+conda install habitat-sim -c conda-forge -c aihabitat
+#with bullet
+conda install habitat-sim withbullet -c conda-forge -c aihabitat
+```
+
+
+Note, for newer features added after the most recent release, you may need to install aihabitat-nightly. See Habitat-Sim's installation instructions for more details.
+pip install habitat-lab stable version.
+```bash
+git clone --branch stable https://github.com/facebookresearch/habitat-lab.git
+git checkout v0.2.4
+cd habitat-lab
+pip install -e habitat-lab  # install habitat_lab
+```
+Install habitat-baselines.
+
+The command above will install only core of Habitat-Lab. To include habitat_baselines along with all additional requirements, use the command below after installing habitat-lab:
+```bash
+pip install -e habitat-baselines  # install habitat_baselines
+```
 ## :dart: Downloading the HM3D dataset
 
 ### Matterport
@@ -57,7 +103,11 @@ First, set the following variables during installation (don't need to put in .ba
 MATTERPORT_TOKEN_ID=<FILL IN FROM YOUR ACCOUNT INFO IN MATTERPORT>
 MATTERPORT_TOKEN_SECRET=<FILL IN FROM YOUR ACCOUNT INFO IN MATTERPORT>
 DATA_DIR=</path/to/vlfm/data>
-
+secret:595bb7584e1c33d49b641b467fa9e40f
+token_id:ba034ce267462954
+MATTERPORT_TOKEN_ID=ba034ce267462954
+MATTERPORT_TOKEN_SECRET=595bb7584e1c33d49b641b467fa9e40f
+DATA_DIR=/home/zoratt/DataDisk/3D_ws/g3D-LF/ObjectNav/vlfm/data
 # Link to the HM3D ObjectNav episodes dataset, listed here:
 # https://github.com/facebookresearch/habitat-lab/blob/main/DATASETS.md#task-datasets
 # From the above page, locate the link to the HM3D ObjectNav dataset.
